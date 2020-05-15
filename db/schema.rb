@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2020_05_14_144906) do
     t.string "company_name"
     t.string "access_token"
     t.string "refresh_token"
-    t.string "id_token"
     t.string "token_type"
     t.datetime "expires_in"
     t.datetime "x_refresh_token_expires_in"
@@ -39,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_05_14_144906) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "full_name"
     t.string "phone"
     t.boolean "verified_email", default: false, null: false
     t.boolean "verified_phone", default: false, null: false

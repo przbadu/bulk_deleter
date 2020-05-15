@@ -5,8 +5,6 @@ class CreateQboAccounts < ActiveRecord::Migration[6.0]
       t.string      :company_name
       t.string      :access_token
       t.string      :refresh_token
-      t.string      :id_token
-      t.string      :token_type
       t.datetime    :expires_in
       t.datetime    :x_refresh_token_expires_in
       t.boolean     :connected, null: false, default: false
