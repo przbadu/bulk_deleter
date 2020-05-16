@@ -1,24 +1,12 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faBars,
-  faChartLine,
-  faMicrochip,
-  faCompactDisc,
-  faCertificate,
   faPlus,
   faBell,
   faTimes,
+  faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons';
 // cache icons in library
-library.add(
-  faBars,
-  faBell,
-  faChartLine,
-  faCompactDisc,
-  faCertificate,
-  faMicrochip,
-  faPlus,
-  faTimes,
-);
+library.add(faBars, faBell, faPlus, faTimes, faSignOutAlt);
 
 export default library;

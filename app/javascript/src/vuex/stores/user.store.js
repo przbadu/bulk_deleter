@@ -1,3 +1,4 @@
+import Vue from 'vue/dist/vue.esm';
 import axios from 'axios';
 
 export default {
@@ -8,22 +9,40 @@ export default {
     qbo_accounts: [],
   },
   mutations: {
+    setLoading(state, loading) {
+      state.loading = loading;
+    },
     setUser(state, data) {
       state.user_id = data.user_id;
       state.active_account_id = data.active_account_id;
     },
-  },
-  actions: {
-    async getConnectedAccounts(state) {
-      const result = axios.get('/admin/api/qbo_accounts');
+    setQboAccounts(state, data) {
+      // state.qbo_accounts = data;
+      Vue.set(state, 'qbo_accounts', [...data]);
     },
   },
-  getter: {
+  actions: {
+    async fetchConnectedAccounts(state) {
+      const result = await axios.get('/api/admins/qbo_accounts');
+      state.commit('setQboAccounts', result.data);
+    },
+  },
+  getters: {
+    isLoading(state) {
+      return state.isLoading;
+    },
     userId(state) {
       return state.user_id;
     },
-    activeAccountId(state) {
-      return state.active_account_id;
+    activeQboAccount(state) {
+      return state.qbo_accounts.find(
+        (account) => account.id === state.active_account_id,
+      );
+    },
+    otherQboAccounts(state) {
+      return state.qbo_accounts.filter(
+        (account) => account.id !== state.active_account_id,
+      );
     },
   },
 };

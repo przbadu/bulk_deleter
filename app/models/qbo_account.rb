@@ -4,4 +4,7 @@ class QboAccount < ApplicationRecord
 
   # associations
   belongs_to :user
+
+  # scope
+  scope :connected, -> { where(connected: true) }
 end

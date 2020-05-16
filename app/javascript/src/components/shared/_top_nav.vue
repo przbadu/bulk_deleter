@@ -10,22 +10,55 @@
         <font-awesome-icon icon="bars" />
       </button>
 
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="ml-4 mr-auto">
-          <b-nav-item-dropdown text="Connected With: Company Name" right>
-            <b-dropdown-item>Second company</b-dropdown-item>
-            <b-dropdown-item>Third Company</b-dropdown-item>
-          </b-nav-item-dropdown>
+      <div class="collapse navbar-collapse">
+        <div class="navbar-nav mr-auto ml-4">
+          <div class="nav-item">
+            <b-button
+              variant="danger"
+              v-if="activeQboAccount && !otherQboAccounts.length"
+            >
+              {{ activeQboAccount.company_name }}
+            </b-button>
+            <b-dropdown
+              class="m-2"
+              variant="danger"
+              v-else-if="activeQboAccount"
+              :text="activeQboAccount.company_name"
+            >
+              <b-dropdown-item href="#">Action</b-dropdown-item>
+              <b-dropdown-item href="#">Another action</b-dropdown-item>
+              <b-dropdown-item href="#">Something else here...</b-dropdown-item>
+            </b-dropdown>
+          </div>
+        </div>
+
+        <b-navbar-nav class="ml-auto">
+          <div class="nav-item">
+            <b-nav-item href="/users/sign_out">
+              <font-awesome-icon icon="sign-out-alt" />
+              Logout
+            </b-nav-item>
+          </div>
         </b-navbar-nav>
-      </b-collapse>
+      </div>
     </div>
   </nav>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   created() {
-    this.$store.dispatch('UserStore/fetchQboAccounts');
+    this.$store.dispatch('UserStore/fetchConnectedAccounts');
+  },
+  computed: {
+    activeQboAccount() {
+      return this.$store.getters['UserStore/activeQboAccount'];
+    },
+    otherQboAccounts() {
+      return this.$store.getters['UserStore/otherQboAccounts'];
+    },
   },
   methods: {
     toggleSidebar() {

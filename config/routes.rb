@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/oauth2/callback', to: 'sessions#oauth2_callback'
 
   # APIs
-  namespace :api, defaults: { format: 'json' } do
+  namespace :api do
     namespace :admins do
       as :user do
         delete 'sign_out', to: '/devise/sessions#destroy'
