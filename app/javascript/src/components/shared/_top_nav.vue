@@ -9,6 +9,15 @@
       >
         <font-awesome-icon icon="bars" />
       </button>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav class="ml-4 mr-auto">
+          <b-nav-item-dropdown text="Connected With: Company Name" right>
+            <b-dropdown-item>Second company</b-dropdown-item>
+            <b-dropdown-item>Third Company</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-collapse>
     </div>
   </nav>
 </template>

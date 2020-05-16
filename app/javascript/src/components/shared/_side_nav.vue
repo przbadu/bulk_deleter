@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar" :class="{ active: sidebarActive }" id="sidebar">
     <div class="sidebar-header pl-2 pt-3 pb-3">
-      <strong>Bulk Deleter</strong>
+      <h5>Bulk Deleter</h5>
     </div>
     <ul class="list-unstyled components">
       <li v-for="item in menuItems" :key="item.name">
@@ -60,7 +60,6 @@ a:focus {
   background: linear-gradient(-138deg, #3d8ec4, #276aab);
 }
 .sidebar ul.components {
-  padding: 20px 0;
   border-bottom: 1px solid #47748b;
 }
 .sidebar ul p {
@@ -74,11 +73,11 @@ a:focus {
 }
 .sidebar ul li a:hover {
   color: #fff;
-  background-color: #ffc502;
+  background-color: #276aabcf;
 }
 .sidebar ul li a.active {
   color: #fff;
-  background-color: #ffc502;
+  background-color: #276aabcf;
 }
 @media (max-width: 768px) {
   .sidebar {

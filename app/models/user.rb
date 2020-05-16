@@ -5,7 +5,9 @@ class User < ApplicationRecord
   #        :recoverable, :rememberable, :validatable
   devise :database_authenticatable, :rememberable
 
+  # associations
   has_many :qbo_accounts
+  belongs_to :active_account, class_name: 'QboAccount'
 
   def self.find_or_create!(user_info)
     User.find_or_initialize_by(email: user_info['email']).tap do |u|

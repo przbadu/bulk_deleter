@@ -13,24 +13,24 @@ class SessionsController < ApplicationController
   end
 
   def oauth2_callback
-    realm_id = params[:realm_id]
+    realm_id = params[:realmId]
     code = params[:code]
     tokens = @client.token.get_bearer_token(code)
     # user
     user_info = @client.openid.get_user_info(tokens.access_token)
     user = User.find_or_create!(user_info)
     # account
-    user.qbo_accounts.create(
-      realm_id: realm_id,
-      access_token: tokens.access_token,
-      refresh_token: tokens.refresh_token,
-      expires_in: tokens.expires_in.to_i.seconds.from_now,
-      x_refresh_token_expires_in: tokens.x_refresh_token_expires_in.to_i.seconds.from_now,
-      connected: true
-    )
+    acc = user.qbo_accounts.find_or_initialize_by(realm_id: realm_id).tap do |account|
+      account.access_token = tokens.access_token
+      account.refresh_token = tokens.refresh_token
+      account.expires_in = tokens.expires_in.to_i.seconds.from_now
+      account.x_refresh_token_expires_in = tokens.x_refresh_token_expires_in.to_i.seconds.from_now
+      account.connected = true
+      account.save!
+    end
 
+    user.update(active_account: acc)
     sign_in user
-
     redirect_to :admins
   end
 
