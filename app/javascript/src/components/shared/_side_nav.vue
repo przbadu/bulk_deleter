@@ -74,11 +74,11 @@ a:focus {
 }
 .sidebar ul li a:hover {
   color: #fff;
-  background-color: #ffc502 6b;
+  background-color: #ffc502;
 }
 .sidebar ul li a.active {
   color: #fff;
-  background-color: #ffc502 ba;
+  background-color: #ffc502;
 }
 @media (max-width: 768px) {
   .sidebar {
