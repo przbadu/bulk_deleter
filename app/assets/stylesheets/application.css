@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+
+/* Sidebar */
+html,
+body,
+.wrapper,
+.sidebar {
+  min-height: 100vh;
+}
+html,
+body,
+p,
+a,
+span {
+  font-size: 12px !important;
+}
+.wrapper {
+  display: flex;
+  text-decoration: none;
+  transition: all 0.3s;
+  height: 100%;
+}
+a[aria-expended='true'] {
+  color: #fff;
+  background: #6d7fcc;
+}
+a[data-toggle='collapse'] {
+  position: relative;
+}
+.content {
+  width: 100%;
+  transition: all 0.3s;
+}
+.content .content-wrapper {
+  padding: 20px;
+  min-height: 100vh;
+}
+.modal-content {
+  border-radius: 0 !important;
+}
