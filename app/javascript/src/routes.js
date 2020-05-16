@@ -8,9 +8,8 @@ import Error404 from './components/errors/404.vue';
 
 const router = new VueRouter({
   mode: 'history',
-  base: `${I18n.prefix}admin`,
   routes: [
-    { path: '/', component: Dashboard, name: 'root_path' },
+    { path: '/admins', component: Dashboard, name: 'root_path' },
     // { path: '/customers', component: UserIndex, name: 'users_path' },
     // { path: '/users/new', component: UserNew, name: 'new_user_path' },
     // { path: '/users/:id/edit', component: UserEdit, name: 'edit_user_path' },

@@ -1,14 +1,6 @@
 <template>
   <div class="row">
     <div class="col-xs-12">
-      <select class="pull-right" v-model="locale" style="margin-top: 10px;">
-        <option
-          v-for="locale in availableLocales"
-          :value="locale"
-          :key="locale"
-        >{{ locale | uppercase }}</option>
-      </select>
-
       <h1>{{ $t('title') }}</h1>
 
       <ul class="nav nav-pills">
@@ -30,7 +22,6 @@
 export default {
   data: function() {
     return {
-      locale: window.I18n.locale,
       availableLocales: window.I18n.availableLocales
     };
   },
@@ -42,17 +33,6 @@ export default {
       } else {
         return "";
       }
-    }
-  },
-
-  watch: {
-    locale: function(locale) {
-      let redirectTo = `/${locale}${this.$route.path}`;
-      if (locale == this.availableLocales[0]) {
-        redirectTo = `${this.$route.path}`;
-      }
-
-      window.location.href = redirectTo;
     }
   }
 };

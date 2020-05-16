@@ -5,7 +5,9 @@ class User < ApplicationRecord
   #        :recoverable, :rememberable, :validatable
   devise :database_authenticatable, :rememberable
 
-  def find_or_create!(user_info)
+  has_many :qbo_accounts
+
+  def self.find_or_create!(user_info)
     User.find_or_initialize_by(email: user_info['email']).tap do |u|
       u.password        = Devise.friendly_token
       u.verified_email  = user_info['emailVerified']

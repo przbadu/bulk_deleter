@@ -7,18 +7,7 @@
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' %>
     <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' %>
-    <%= javascript_include_tag 'application' %>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <script type='text/javascript'>
-      const translations = <%= ui_translations(:admin) %>;
-    </script>
-    <script type='text/javascript'>
-      I18n = {
-        prefix: '<%= I18n.locale == I18n.default_locale ? "" : "#{I18n.locale}/" %>',
-        locale: '<%= I18n.locale %>',
-        availableLocales: <%= raw(I18n.available_locales.map {|loc| loc.to_s}) %>
-      }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
   <body class='admin'>
     <div id='app'>

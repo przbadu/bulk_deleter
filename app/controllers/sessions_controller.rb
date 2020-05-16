@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
   end
 
   def oauth2_callback
-    byebug
     realm_id = params[:realm_id]
     code = params[:code]
     tokens = @client.token.get_bearer_token(code)
@@ -30,7 +29,7 @@ class SessionsController < ApplicationController
       connected: true
     )
 
-    sign_in :user
+    sign_in user
 
     redirect_to :admins
   end
