@@ -14,6 +14,7 @@ gem 'devise'
 
 # quickbooks
 gem 'intuit-oauth'
+gem 'qbo_api'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

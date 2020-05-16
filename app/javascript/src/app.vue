@@ -24,5 +24,12 @@ export default {
     'top-nav': TopNav,
     'side-nav': SideNav,
   },
+  created() {
+    let data = document
+      .querySelector('meta[name="initial-data"]')
+      .getAttribute('content');
+    data = JSON.parse(data);
+    this.$store.commit('UserStore/setUser', data);
+  },
 };
 </script>

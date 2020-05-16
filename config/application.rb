@@ -31,5 +31,7 @@ module BulkDeleter
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.generators.helpers = nil
+    config.generators.assets = nil
   end
 end

@@ -11,11 +11,6 @@ export default {
       state.sidebarVisible = !state.sidebarVisible;
     },
   },
-  actions: {
-    toggleSidebar(state) {
-      state.commit('toggleSidebar');
-    },
-  },
   getters: {
     items(state) {
       return state.items;

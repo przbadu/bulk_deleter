@@ -24,9 +24,12 @@
 
 <script>
 export default {
+  created() {
+    this.$store.dispatch('UserStore/fetchQboAccounts');
+  },
   methods: {
     toggleSidebar() {
-      this.$store.dispatch('NavigationStore/toggleSidebar');
+      this.$store.commit('NavigationStore/toggleSidebar');
     },
   },
 };
