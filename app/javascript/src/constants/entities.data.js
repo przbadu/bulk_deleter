@@ -8,9 +8,9 @@ import Customers from '../components/customers';
 export default [
   {
     label: 'Account',
-    path: '/admins/accounts',
+    path: '/admins',
     component: Accounts,
-    name: 'accounts_path',
+    name: 'root_path',
   },
   // { label: 'Bill', path: '/admins/bills' },
   // { label: 'Bill Payment', path: '/admins/bill_payments',

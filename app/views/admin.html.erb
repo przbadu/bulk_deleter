@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Boilerplate</title>
+    <title>Bulk Deleter</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application' %>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <meta name="initial-data" content="<%= {
-      user_id: current_user&.id,
+      id: current_user&.id,
       active_account_id: current_user&.active_account_id
     }.to_json %>">
   </head>

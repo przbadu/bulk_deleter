@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         delete 'sign_out', to: '/devise/sessions#destroy'
       end
 
+      put 'switch_account/:id', to: 'qbo_accounts#switch_account'
       resources :qbo_accounts, only: :index
     end
   end

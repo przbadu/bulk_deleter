@@ -8,25 +8,6 @@ export default {
     active_account_id: null,
     qbo_accounts: [],
   },
-  mutations: {
-    setLoading(state, loading) {
-      state.loading = loading;
-    },
-    setUser(state, data) {
-      state.user_id = data.user_id;
-      state.active_account_id = data.active_account_id;
-    },
-    setQboAccounts(state, data) {
-      // state.qbo_accounts = data;
-      Vue.set(state, 'qbo_accounts', [...data]);
-    },
-  },
-  actions: {
-    async fetchConnectedAccounts(state) {
-      const result = await axios.get('/api/admins/qbo_accounts');
-      state.commit('setQboAccounts', result.data);
-    },
-  },
   getters: {
     isLoading(state) {
       return state.isLoading;
@@ -43,6 +24,29 @@ export default {
       return state.qbo_accounts.filter(
         (account) => account.id !== state.active_account_id,
       );
+    },
+  },
+  mutations: {
+    setLoading(state, loading) {
+      state.loading = loading;
+    },
+    setUser(state, data) {
+      const { id, active_account_id } = data;
+      state.user_id = id;
+      state.active_account_id = active_account_id;
+    },
+    setQboAccounts(state, data) {
+      Vue.set(state, 'qbo_accounts', [...data]);
+    },
+  },
+  actions: {
+    async fetchConnectedAccounts(context) {
+      const result = await axios.get('/api/admins/qbo_accounts');
+      context.commit('setQboAccounts', result.data);
+    },
+    async switchAccount(context, id) {
+      const result = await axios.put(`/api/admins/switch_account/${id}`);
+      context.commit('setUser', result.data);
     },
   },
 };

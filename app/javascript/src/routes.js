@@ -8,7 +8,7 @@ import Error500 from './components/errors/500.vue';
 import Error404 from './components/errors/404.vue';
 
 // prepare all routes
-let routes = [{ path: '/admins', component: Dashboard, name: 'root_path' }];
+let routes = [];
 entities.map((entity) => routes.push(entity));
 routes.push({ path: '/500', component: Error500 });
 routes.push({ path: '/404', component: Error404 });

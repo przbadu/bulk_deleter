@@ -25,9 +25,14 @@
               v-else-if="activeQboAccount"
               :text="activeQboAccount.company_name"
             >
-              <b-dropdown-item href="#">Action</b-dropdown-item>
-              <b-dropdown-item href="#">Another action</b-dropdown-item>
-              <b-dropdown-item href="#">Something else here...</b-dropdown-item>
+              <b-dropdown-item
+                v-for="account in otherQboAccounts"
+                :key="account.id"
+                :value="account.company_name"
+                @click="switchAccount(account.id)"
+              >
+                {{ account.company_name }}
+              </b-dropdown-item>
             </b-dropdown>
           </div>
         </div>
@@ -63,6 +68,9 @@ export default {
   methods: {
     toggleSidebar() {
       this.$store.commit('NavigationStore/toggleSidebar');
+    },
+    switchAccount(id) {
+      this.$store.dispatch('UserStore/switchAccount', id);
     },
   },
 };
