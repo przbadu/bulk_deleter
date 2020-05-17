@@ -39,15 +39,4 @@ class SessionsController < ApplicationController
     sign_in user
     redirect_to :admins
   end
-
-  private
-
-  def oauth_client
-    @client ||= IntuitOAuth::Client.new(
-      ENV['INTUIT_CLIENT_ID'],
-      ENV['INTUIT_CLIENT_SECRET'],
-      request.base_url + '/oauth2/callback',
-      'sandbox'
-    )
-  end
 end

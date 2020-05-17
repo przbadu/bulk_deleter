@@ -17,6 +17,11 @@ Rails.application.routes.draw do
 
       put 'switch_account/:id', to: 'qbo_accounts#switch_account'
       resources :qbo_accounts, only: :index
+      resources :accounts, only: [:index] do
+        collection do
+          post :bulk_delete
+        end
+      end
     end
   end
 

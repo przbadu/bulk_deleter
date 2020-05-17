@@ -41,11 +41,11 @@ export default {
   },
   actions: {
     async fetchConnectedAccounts(context) {
-      const result = await axios.get('/api/admins/qbo_accounts');
+      const result = await axios.get('/qbo_accounts');
       context.commit('setQboAccounts', result.data);
     },
     async switchAccount(context, id) {
-      const result = await axios.put(`/api/admins/switch_account/${id}`);
+      const result = await axios.put(`/switch_account/${id}`);
       context.commit('setUser', result.data);
     },
   },

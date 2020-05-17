@@ -1,7 +1,7 @@
 import Vue from 'vue/dist/vue.esm';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { BootstrapVue } from 'bootstrap-vue';
-import axios from 'axios';
 
 import store from '../src/vuex';
 import router from '../src/routes.js';
@@ -17,6 +17,7 @@ Vue.use(BootstrapVue);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 window.addEventListener('DOMContentLoaded', setupCSRFToken);
+axios.defaults.baseURL = '/api/admins';
 
 const app = new Vue({
   router,
