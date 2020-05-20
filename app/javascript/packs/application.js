@@ -6,6 +6,7 @@ import { BootstrapVue } from 'bootstrap-vue';
 import store from '../src/vuex';
 import router from '../src/routes.js';
 import App from '../src/app';
+import myTable from '../src/components/table/my-table';
 import setupCSRFToken from '../src/lib/setupCSRFToken';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -15,6 +16,7 @@ import '../src/filters/strings.js';
 
 Vue.use(BootstrapVue);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component('my-table', myTable);
 
 window.addEventListener('DOMContentLoaded', setupCSRFToken);
 axios.defaults.baseURL = '/api/admins';

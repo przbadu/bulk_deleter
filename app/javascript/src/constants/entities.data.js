@@ -2,8 +2,8 @@ import Vue from 'vue/dist/vue.esm';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-import Accounts from '../components/accounts';
-import Customers from '../components/customers';
+import Accounts from '../pages/accounts';
+import Customers from '../pages/customers';
 
 export default [
   {

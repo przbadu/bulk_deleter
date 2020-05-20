@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   # associations
   has_many :qbo_accounts
-  belongs_to :active_account, class_name: 'QboAccount'
+  belongs_to :active_account, class_name: 'QboAccount', optional: true
 
   def self.find_or_create!(user_info)
     User.find_or_initialize_by(email: user_info['email']).tap do |u|
@@ -16,7 +16,7 @@ class User < ApplicationRecord
       u.phone           = user_info['phoneNumber']
       u.verified_phone  = user_info['phoneNumberVerified']
       # u.full_name       = user_info['GivenName'].to_s + user_info['FamilyName']
-      u.save
+      u.save!
     end
   end
 end

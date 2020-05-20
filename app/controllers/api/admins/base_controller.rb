@@ -23,4 +23,14 @@ class Api::Admins::BaseController < ApplicationController
       realm_id: active_account.realm_id
     )
   end
+
+  private
+
+  def page
+    @page = params[:page] || 1
+  end
+
+  def per_page
+    @per_page = 30
+  end
 end

@@ -5,8 +5,20 @@ import {
   faBell,
   faTimes,
   faSignOutAlt,
+  faSort,
+  faSortDown,
+  faSortUp,
 } from '@fortawesome/free-solid-svg-icons';
 // cache icons in library
-library.add(faBars, faBell, faPlus, faTimes, faSignOutAlt);
+library.add(
+  faBars,
+  faBell,
+  faPlus,
+  faTimes,
+  faSignOutAlt,
+  faSort,
+  faSortUp,
+  faSortDown,
+);
 
 export default library;

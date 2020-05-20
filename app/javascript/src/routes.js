@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import entities from './constants/entities.data';
-import Dashboard from './components/dashboard/index.vue';
+import Dashboard from './pages/dashboard/index.vue';
 import Error500 from './components/errors/500.vue';
 import Error404 from './components/errors/404.vue';
 

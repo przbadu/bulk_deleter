@@ -52,3 +52,6 @@ a[data-toggle='collapse'] {
 .modal-content {
   border-radius: 0 !important;
 }
+.table-hover {
+  cursor: pointer;
+}
